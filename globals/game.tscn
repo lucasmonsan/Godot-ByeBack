@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2kefrvmiv4kb"]
+
+[sub_resource type="GDScript" id="GDScript_276mx"]
+resource_name = "game"
+script/source = "extends CanvasLayer
+
+var day = 1
+var step = 0
+var choice = \"\"
+var touch = false
+var actions_list : Array = []
+
+func _actions_list(option, value, newValue = \"\"):
+	if option == \"get\":
+		return actions_list.find(value) != -1
+
+	elif option == \"post\":
+		actions_list.append(value)
+		return true
+
+	elif option == \"put\":
+		var index = actions_list.find(value)
+		if index != -1:
+			actions_list[index] = newValue
+			return true
+		return false
+
+	elif option == \"delete\":
+		var index = actions_list.find(value)
+		if index != -1:
+			actions_list.remove_at(index)
+			return true
+		return false
+
+	return false
+
+func _step_once():
+	touch = false
+	if step >= 0: step = step * -1
+	else: print(\"_once: valor negativo\")
+
+func _next_step():
+	if step < 0: step = (step * -1) + 1
+	else: step += 1
+
+func _tween(node, property, final, time, trans = \"linear\"):
+	if (node is AudioStreamPlayer) and (final != -80): 
+		node.volume_db = -64
+		node.play()
+	
+	var my_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT)
+	if (trans == \"back\"): my_tween = my_tween.set_trans(Tween.TRANS_BACK)
+	elif (trans == \"quad\"): my_tween = my_tween.set_trans(Tween.TRANS_QUAD)
+	
+	my_tween.tween_property(node, property, final, time)
+
+func _fadeCity(node, speed = 1):
+	var my_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	
+	if (node.modulate == Color(\"#FFF0\")):
+		node.position.y = node.position.y -128
+		my_tween.tween_property(node, \"modulate\", Color(\"#FFF\"), speed)
+		my_tween.parallel().tween_property(node, \"position\", Vector2(node.position.x, node.position.y+128), speed)
+	else:
+		my_tween.tween_property(node, \"modulate\", Color(\"#FFF0\"), speed)
+		my_tween.parallel().tween_property(node, \"position\", Vector2(node.position.x, node.position.y+128), speed)
+
+func _zoomEnter(node, speed = 0.5):
+	var my_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	my_tween.tween_property(node, \"modulate\", Color(\"#FFF0\"), speed)
+	my_tween.parallel().tween_property(node, \"scale\", Vector2(2, 2), speed)
+"
+
+[node name="Game" type="CanvasLayer"]
+script = SubResource("GDScript_276mx")

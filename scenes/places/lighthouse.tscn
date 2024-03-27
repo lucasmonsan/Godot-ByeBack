@@ -1,0 +1,260 @@
+[gd_scene load_steps=18 format=3 uid="uid://c8d3856r58rue"]
+
+[ext_resource type="Texture2D" uid="uid://dacxpfmadbgid" path="res://resources/assets/places/lighthouse-boat-concept-illustration/sun.svg" id="1_pqo6a"]
+[ext_resource type="Texture2D" uid="uid://4lcy03aoh1jg" path="res://resources/assets/places/lighthouse-boat-concept-illustration/water1.svg" id="1_vqlpe"]
+[ext_resource type="Shader" path="res://resources/shaders/parallax.gdshader" id="2_qknk2"]
+[ext_resource type="Texture2D" uid="uid://d4nnuwjy5f6px" path="res://resources/assets/places/lighthouse-boat-concept-illustration/water2.svg" id="2_rwqpy"]
+[ext_resource type="Texture2D" uid="uid://bjtax2sxmubdx" path="res://resources/assets/places/lighthouse-boat-concept-illustration/clouds.svg" id="3_ryflg"]
+[ext_resource type="Texture2D" uid="uid://1rf1o33kqqoo" path="res://resources/assets/places/lighthouse-boat-concept-illustration/water3.svg" id="3_xol84"]
+[ext_resource type="Shader" path="res://resources/shaders/wave.gdshader" id="5_msu28"]
+[ext_resource type="Texture2D" uid="uid://0ms7yiok0swl" path="res://resources/assets/places/lighthouse-boat-concept-illustration/floor.svg" id="7_n7xyg"]
+[ext_resource type="Texture2D" uid="uid://cx4snd4aqppqt" path="res://resources/assets/places/lighthouse-boat-concept-illustration/path.svg" id="8_gtl1b"]
+[ext_resource type="Texture2D" uid="uid://ol0aej1x5xfg" path="res://resources/assets/places/lighthouse-boat-concept-illustration/trees.svg" id="9_10fsr"]
+[ext_resource type="Texture2D" uid="uid://csh4tf1rpa8pb" path="res://resources/assets/places/lighthouse-boat-concept-illustration/water_stroke.svg" id="10_q3scd"]
+[ext_resource type="Texture2D" uid="uid://cyd2gmjuhbfjj" path="res://resources/assets/places/lighthouse-boat-concept-illustration/lighthouse.svg" id="10_s5f86"]
+[ext_resource type="Texture2D" uid="uid://tuuecg2hqh4q" path="res://resources/assets/ui/arrow_down.svg" id="13_2fif8"]
+
+[sub_resource type="GDScript" id="GDScript_all5h"]
+resource_name = "lighthouse"
+script/source = "extends CanvasLayer
+
+func _ready():
+	GAME._tween(SFX.sea_seagull, \"volume_db\", 0, 2)
+	for child in get_children(): child.modulate = Color(\"#FFF0\")
+	for child in get_children(): 
+		GAME._fadeCity(child)
+		await get_tree().create_timer(0.05).timeout
+
+
+func _on_lighthouse_enter_pressed():  for child in get_children(): GAME._zoomEnter(child)
+
+func _on_go_to_forest_pressed(): for child in get_children(): GAME._fadeCity(child, 0.75)
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jmxnc"]
+shader = ExtResource("2_qknk2")
+shader_parameter/speed = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sxfs5"]
+shader = ExtResource("5_msu28")
+shader_parameter/amplitude = 1.0
+shader_parameter/frequency = 2.0
+shader_parameter/time_scale = 2.0
+shader_parameter/intensity = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihfae"]
+shader = ExtResource("5_msu28")
+shader_parameter/amplitude = 0.2
+shader_parameter/frequency = 4.0
+shader_parameter/time_scale = 4.0
+shader_parameter/intensity = 4.0
+
+[node name="Lighthouse" type="CanvasLayer"]
+script = SubResource("GDScript_all5h")
+
+[node name="sun" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("1_pqo6a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="clouds" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jmxnc")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -544.0
+offset_top = -896.0
+offset_right = 544.0
+offset_bottom = 896.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(544, 512)
+texture = ExtResource("3_ryflg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="water" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("1_vqlpe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="wave01" type="TextureRect" parent="."]
+texture_repeat = 1
+material = SubResource("ShaderMaterial_sxfs5")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("2_rwqpy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="wave02" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ihfae")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("3_xol84")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="floor" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("7_n7xyg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="path" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("8_gtl1b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="water_stroke" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ihfae")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("10_q3scd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="trees" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("9_10fsr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lighthouse" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("10_s5f86")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lighthouse_enter" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -384.0
+offset_right = -96.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="go_to_forest" type="Button" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -448.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("13_2fif8")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="lighthouse_enter" to="." method="_on_lighthouse_enter_pressed"]
+[connection signal="pressed" from="go_to_forest" to="." method="_on_go_to_forest_pressed"]

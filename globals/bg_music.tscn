@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8urwg5y3a5yt"]
+
+[ext_resource type="AudioStream" uid="uid://hly5amssvtuf" path="res://resources/musics/Journey_Title.mp3" id="1_15nso"]
+[ext_resource type="AudioStream" uid="uid://dy337d2ui6but" path="res://resources/musics/Childhood_Friends.mp3" id="2_5kpgf"]
+
+[sub_resource type="GDScript" id="GDScript_l7pc5"]
+resource_name = "bg_music"
+script/source = "extends Node
+
+@onready var title = $Title
+@onready var grandpa_01 = $Grandpa_01
+
+func _process(_delta):
+	if (title.volume_db == -80 and title.playing): title.stop()
+	if (grandpa_01.volume_db == -80 and grandpa_01.playing): grandpa_01.stop()
+"
+
+[node name="BgMusic" type="Node"]
+script = SubResource("GDScript_l7pc5")
+
+[node name="Title" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_15nso")
+
+[node name="Grandpa_01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5kpgf")
