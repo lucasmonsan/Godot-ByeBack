@@ -22,10 +22,12 @@ func _process(_delta):
 #-----------------------------------------------------------------------------------------------------------------#
 
 func _in(node, time = 1):
+	GAME._once()
 	node.volume_db = -64
 	node.play()
 	get_tree().create_tween().tween_property(node, "volume_db", 0, time)
 func _out(node, time = 0.75):
+	GAME._once()
 	get_tree().create_tween().tween_property(node, "volume_db", -80, time)
 	await get_tree().create_timer(time).timeout
 	node.stop()

@@ -9,10 +9,6 @@ var animation = "empty"
 func _ready():
 	visible = false
 	for child in get_children(): child.modulate = Color("FFF0")
-	
-	npc = "grandpa"
-	animation = "sad_talk"
-	_start(["Ocê num tá pra prosa hoje, né."])
 
 #-----------------------------------------------------------------------------------------------------------------#
 

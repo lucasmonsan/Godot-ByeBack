@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cekd81xhahhxx"]
+[gd_scene load_steps=4 format=3 uid="uid://cekd81xhahhxx"]
 
 [ext_resource type="Script" path="res://globals/scripts/dialog.gd" id="1_k4gkm"]
 [ext_resource type="SpriteFrames" uid="uid://tpq6tldno4oe" path="res://resources/assets/characters/grandpa/grandpa.tres" id="2_psj4x"]
+[ext_resource type="AudioStream" uid="uid://dua8cie1ocofk" path="res://resources/sounds/voices/04.mp3" id="3_07sd6"]
 
 [node name="Dialog" type="CanvasLayer"]
 layer = 2
@@ -16,6 +17,9 @@ offset_top = 64.0
 offset_right = 480.0
 offset_bottom = 192.0
 grow_horizontal = 2
+text = "Vô"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ballon" type="PanelContainer" parent="."]
 anchors_preset = 7
@@ -33,6 +37,8 @@ grow_vertical = 0
 [node name="text" type="RichTextLabel" parent="ballon"]
 layout_mode = 2
 bbcode_enabled = true
+text = "[center]Ocê já descobriu por quê só tem estrela no céu de noite?"
+fit_content = true
 
 [node name="characters" type="CenterContainer" parent="."]
 anchors_preset = 7
@@ -52,3 +58,4 @@ animation = &"happy_talk"
 centered = false
 
 [node name="voice" type="AudioStreamPlayer" parent="characters/grandpa"]
+stream = ExtResource("3_07sd6")
