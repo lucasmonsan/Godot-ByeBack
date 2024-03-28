@@ -1,0 +1,154 @@
+[gd_resource type="SpriteFrames" load_steps=17 format=3 uid="uid://tpq6tldno4oe"]
+
+[ext_resource type="Texture2D" uid="uid://dtj87cyq131qb" path="res://resources/assets/characters/grandpa/grandpa_disgust0.svg" id="1_0q7nf"]
+[ext_resource type="Texture2D" uid="uid://wk12jlc3rfe3" path="res://resources/assets/characters/grandpa/grandpa_disgust1.svg" id="2_3xama"]
+[ext_resource type="Texture2D" uid="uid://b6mheeebrwibo" path="res://resources/assets/characters/grandpa/grandpa_disgust2.svg" id="3_btpee"]
+[ext_resource type="Texture2D" uid="uid://k5511ulhvujg" path="res://resources/assets/characters/empty.webp" id="4_15lqx"]
+[ext_resource type="Texture2D" uid="uid://m0tltn218mbk" path="res://resources/assets/characters/grandpa/grandpa_happy1.svg" id="5_cxfot"]
+[ext_resource type="Texture2D" uid="uid://bo5kmnub58idp" path="res://resources/assets/characters/grandpa/grandpa_happy0.svg" id="5_umi5g"]
+[ext_resource type="Texture2D" uid="uid://cnmpo482jyueg" path="res://resources/assets/characters/grandpa/grandpa_happy2.svg" id="6_yx2p2"]
+[ext_resource type="Texture2D" uid="uid://b3e2wbx1kyhvq" path="res://resources/assets/characters/grandpa/grandpa_idle0.svg" id="7_tufl1"]
+[ext_resource type="Texture2D" uid="uid://nnqudj5j4reb" path="res://resources/assets/characters/grandpa/grandpa_idle1.svg" id="8_yc20m"]
+[ext_resource type="Texture2D" uid="uid://b2fs55yyltbp2" path="res://resources/assets/characters/grandpa/grandpa_idle2.svg" id="9_gcggq"]
+[ext_resource type="Texture2D" uid="uid://bcnvmffk58f7" path="res://resources/assets/characters/grandpa/grandpa_love0.svg" id="10_6ci11"]
+[ext_resource type="Texture2D" uid="uid://ddten5oqbb5t1" path="res://resources/assets/characters/grandpa/grandpa_love1.svg" id="11_mlsak"]
+[ext_resource type="Texture2D" uid="uid://eh4so8v56lc8" path="res://resources/assets/characters/grandpa/grandpa_love2.svg" id="12_nwqwa"]
+[ext_resource type="Texture2D" uid="uid://buvwiuql0y6rb" path="res://resources/assets/characters/grandpa/grandpa_sad0.svg" id="13_inf81"]
+[ext_resource type="Texture2D" uid="uid://bfrux0lwntqci" path="res://resources/assets/characters/grandpa/grandpa_sad1.svg" id="14_0b0uv"]
+[ext_resource type="Texture2D" uid="uid://cyvrdvbwwaiow" path="res://resources/assets/characters/grandpa/grandpa_sad2.svg" id="15_fqxwn"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0q7nf")
+}],
+"loop": false,
+"name": &"disgust_idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0q7nf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3xama")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_btpee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3xama")
+}],
+"loop": true,
+"name": &"disgust_talk",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_15lqx")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_umi5g")
+}],
+"loop": false,
+"name": &"happy_idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_umi5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cxfot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yx2p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cxfot")
+}],
+"loop": true,
+"name": &"happy_talk",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_6ci11")
+}],
+"loop": false,
+"name": &"love_idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_6ci11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mlsak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nwqwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mlsak")
+}],
+"loop": true,
+"name": &"love_talk",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_tufl1")
+}],
+"loop": false,
+"name": &"normal_idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_tufl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yc20m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gcggq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yc20m")
+}],
+"loop": true,
+"name": &"normal_talk",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_inf81")
+}],
+"loop": false,
+"name": &"sad_idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_inf81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0b0uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fqxwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0b0uv")
+}],
+"loop": true,
+"name": &"sad_talk",
+"speed": 8.0
+}]

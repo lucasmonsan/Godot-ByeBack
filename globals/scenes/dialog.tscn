@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://cekd81xhahhxx"]
+
+[ext_resource type="Script" path="res://globals/scripts/dialog.gd" id="1_k4gkm"]
+[ext_resource type="SpriteFrames" uid="uid://tpq6tldno4oe" path="res://resources/assets/characters/grandpa/grandpa.tres" id="2_psj4x"]
+
+[node name="Dialog" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_k4gkm")
+
+[node name="name" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -480.0
+offset_top = 64.0
+offset_right = 480.0
+offset_bottom = 192.0
+grow_horizontal = 2
+
+[node name="ballon" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -1472.0
+offset_right = 480.0
+offset_bottom = -1344.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="text" type="RichTextLabel" parent="ballon"]
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="characters" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -1280.0
+offset_right = 480.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="grandpa" type="AnimatedSprite2D" parent="characters"]
+sprite_frames = ExtResource("2_psj4x")
+animation = &"happy_talk"
+centered = false
+
+[node name="voice" type="AudioStreamPlayer" parent="characters/grandpa"]

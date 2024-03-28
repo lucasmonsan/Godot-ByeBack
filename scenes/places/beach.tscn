@@ -1,0 +1,186 @@
+[gd_scene load_steps=12 format=3 uid="uid://d10ki6i4i3d8j"]
+
+[ext_resource type="Script" path="res://scripts/places/beach.gd" id="1_2ykll"]
+[ext_resource type="Texture2D" uid="uid://dwcfxr2fkx4b1" path="res://resources/assets/places/beach/sun.svg" id="2_imarp"]
+[ext_resource type="Texture2D" uid="uid://pfev201qpme6" path="res://resources/assets/places/beach/trees_back.svg" id="3_0dk28"]
+[ext_resource type="Texture2D" uid="uid://d2hvxfmy5bfyg" path="res://resources/assets/places/beach/trees_front.svg" id="4_2qu57"]
+[ext_resource type="Texture2D" uid="uid://bd2kfpxmmit4b" path="res://resources/assets/places/beach/floor.svg" id="5_iujec"]
+[ext_resource type="Texture2D" uid="uid://fdsibjfryl2m" path="res://resources/assets/places/beach/floor_stroke.svg" id="6_bejye"]
+[ext_resource type="Texture2D" uid="uid://bgiv1nnj62xd" path="res://resources/assets/places/beach/shadows.svg" id="7_w6lmx"]
+[ext_resource type="Texture2D" uid="uid://b06p1mpv3res4" path="res://resources/assets/places/beach/towel.svg" id="8_w2w00"]
+[ext_resource type="Texture2D" uid="uid://ybxcb8ofl4d6" path="res://resources/assets/places/beach/chair.svg" id="9_n6j63"]
+[ext_resource type="Texture2D" uid="uid://c06d0qjbofbb4" path="res://resources/assets/places/beach/umbrella.svg" id="10_1gq3g"]
+[ext_resource type="Texture2D" uid="uid://cq4ultpp1v7v2" path="res://resources/assets/ui/arrow_top.svg" id="10_muq2s"]
+
+[node name="Beach" type="CanvasLayer"]
+script = ExtResource("1_2ykll")
+
+[node name="sun" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("2_imarp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="trees_back" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("3_0dk28")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="trees_front" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("4_2qu57")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="floor" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("5_iujec")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="stroke" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("6_bejye")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="shadows" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("7_w6lmx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="towel" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("8_w2w00")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="chair" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("9_n6j63")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="umbrella" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -512.0
+offset_right = 480.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 512)
+texture = ExtResource("10_1gq3g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="to_lighthouse" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -480.0
+offset_top = 64.0
+offset_right = 480.0
+offset_bottom = 384.0
+grow_horizontal = 2
+pivot_offset = Vector2(480, 160)
+icon = ExtResource("10_muq2s")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="to_lighthouse" to="." method="_on_to_lighthouse_pressed"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk2kacr0cnsr8"]
+
+[ext_resource type="Script" path="res://globals/scripts/sfx.gd" id="1_7u51m"]
+[ext_resource type="AudioStream" uid="uid://b8ffdmbnqovtu" path="res://resources/sounds/ambience/sea_seagull.mp3" id="2_hfptq"]
+[ext_resource type="AudioStream" uid="uid://cn7y6ehofagxt" path="res://resources/sounds/ui/click01.mp3" id="3_kcbuu"]
+
+[node name="SFX" type="Node"]
+script = ExtResource("1_7u51m")
+
+[node name="music" type="Node" parent="."]
+
+[node name="title" type="AudioStreamPlayer" parent="music"]
+
+[node name="bgm01" type="AudioStreamPlayer" parent="music"]
+
+[node name="ambience" type="Node" parent="."]
+
+[node name="wind_strong" type="AudioStreamPlayer" parent="ambience"]
+
+[node name="forest" type="AudioStreamPlayer" parent="ambience"]
+
+[node name="bell" type="AudioStreamPlayer" parent="ambience"]
+
+[node name="sea" type="AudioStreamPlayer" parent="ambience"]
+stream = ExtResource("2_hfptq")
+
+[node name="ui" type="Node" parent="."]
+
+[node name="click" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource("3_kcbuu")
