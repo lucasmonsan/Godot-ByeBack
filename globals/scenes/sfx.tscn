@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk2kacr0cnsr8"]
+[gd_scene load_steps=7 format=3 uid="uid://dk2kacr0cnsr8"]
 
 [ext_resource type="Script" path="res://globals/scripts/sfx.gd" id="1_7u51m"]
 [ext_resource type="AudioStream" uid="uid://b8ffdmbnqovtu" path="res://resources/sounds/ambience/sea_seagull.mp3" id="2_hfptq"]
 [ext_resource type="AudioStream" uid="uid://c44va5fc72uat" path="res://resources/sounds/musics/Journey_Title.mp3" id="2_khoww"]
 [ext_resource type="AudioStream" uid="uid://cp2tusylcjvnm" path="res://resources/sounds/musics/Childhood_Friends.mp3" id="3_7qnsx"]
 [ext_resource type="AudioStream" uid="uid://cn7y6ehofagxt" path="res://resources/sounds/ui/click01.mp3" id="3_kcbuu"]
+[ext_resource type="AudioStream" uid="uid://bsb8nd2wmeehe" path="res://resources/sounds/ui/ALERT_Error.mp3" id="6_7n42o"]
 
 [node name="SFX" type="Node"]
 script = ExtResource("1_7u51m")
@@ -32,3 +33,6 @@ stream = ExtResource("2_hfptq")
 
 [node name="click" type="AudioStreamPlayer" parent="ui"]
 stream = ExtResource("3_kcbuu")
+
+[node name="interrupt" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource("6_7n42o")

@@ -54,7 +54,7 @@ grow_vertical = 0
 
 [node name="grandpa" type="AnimatedSprite2D" parent="characters"]
 sprite_frames = ExtResource("2_psj4x")
-animation = &"happy_talk"
+animation = &"normal_idle"
 centered = false
 
 [node name="voice" type="AudioStreamPlayer" parent="characters/grandpa"]

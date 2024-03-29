@@ -4,13 +4,15 @@ func _ready():
 	$bg/ColorRect.color = Color(PALETTE.white)
 	$fg/ColorRect.color = Color(PALETTE.black)
 
-func _process(_delta): $debug/Label.text = "step: " + str(GAME.step)
+func _process(_delta): $debug/Label.text = "step: " + str(GAME.step) + " | " + "choice: " + str(GAME.choice)
 
 #-----------------------------------------------------------------------------------------------------------------#
 
 func _change_bg(new_color): get_tree().create_tween().tween_property($bg/ColorRect, "color", new_color, 1)
+
 func _change_fg(new_color): get_tree().create_tween().tween_property($fg/ColorRect, "color", new_color, 1)
-func _fg_fade(speed = 1.0): 
+
+func _fg_fade(speed = 1.0):
 	if ($fg/ColorRect.visible):
 		get_tree().create_tween().tween_property($fg/ColorRect, "modulate", Color("FFF0"), speed)
 		await get_tree().create_timer(speed).timeout
@@ -22,8 +24,9 @@ func _fg_fade(speed = 1.0):
 #-----------------------------------------------------------------------------------------------------------------#
 
 var day = 1
-var step = 1
-var choice = ""
+var step = 0
+var choice = 0
+var interrupt = false
 var touch = false
 
 func _once():
@@ -31,7 +34,9 @@ func _once():
 	if step >= 0: step = step * -1
 	else: print("_once: valor negativo")
 
-func _next():
+func _next(time = 0):
+	_once()
+	await get_tree().create_timer(time).timeout
 	if step < 0: step = (step * -1) + 1
 	else: step += 1
 

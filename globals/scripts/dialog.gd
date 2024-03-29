@@ -7,17 +7,21 @@ var animation = "empty"
 @onready var grandpa = $characters/grandpa
 
 func _ready():
-	visible = false
 	for child in get_children(): child.modulate = Color("FFF0")
+
+func _process(_delta):
+	for child in get_children():
+		if (child.modulate == Color("FFF0")) and (child.visible): child.visible = false
+		elif (child.modulate != Color("FFF0")) and (!child.visible): child.visible = true
 
 #-----------------------------------------------------------------------------------------------------------------#
 
 func _start(text, speed = 0.05):
 	GAME._once()
+	GAME.interrupt = false
 	TWN._linear(speech, "modulate", Color("FFF0"), 0.25)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.25).timeout
 	var array_count = 0
-	visible = true
 	
 	if (npc == "grandpa"): $name.text = "Vô"
 	
@@ -35,7 +39,7 @@ func _start(text, speed = 0.05):
 	while (array_count < text.size()):
 		get_node(current_npc).play(animation)
 		
-		while speech.visible_characters < (speech.text.length() - _extract_bbcode_tags(speech.text)):
+		while (speech.visible_characters < (speech.text.length() - _extract_bbcode_tags(speech.text))) and (!GAME.interrupt):
 			if (speech.visible_characters % 2 == 1): get_node(str(current_npc + "/voice")).play()
 			speech.visible_characters += 1
 			await get_tree().create_timer(speed).timeout
@@ -48,7 +52,7 @@ func _start(text, speed = 0.05):
 		else: break
 	
 	if (npc != ""): get_node(current_npc).stop()
-	GAME._next()
+	if (!GAME.interrupt): GAME._next()
 
 func _extract_bbcode_tags(aux_string):
 	var tags = ""
@@ -61,8 +65,5 @@ func _extract_bbcode_tags(aux_string):
 	return tags.length()
 
 func _end(speed = 0.5):
-	TWN._linear($name, "modulate", Color("FFF0"), speed)
-	TWN._linear($ballon, "modulate", Color("FFF0"), speed)
-	TWN._linear($characters, "modulate", Color("FFF0"), speed)
-	await get_tree().create_timer(speed).timeout
-	visible = false
+	GAME._once()
+	for child in get_children(): TWN._linear(child, "modulate", Color("FFF0"), speed)

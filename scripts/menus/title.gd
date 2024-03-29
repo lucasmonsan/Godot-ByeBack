@@ -5,6 +5,7 @@ func _ready():
 	SFX.title.play()
 
 func _on_start_pressed(): 
-	GAME._fg_fade()
+	GAME._fg_fade(1.5)
+	SFX.click.play()
 	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://scenes/places/nothing.tscn")

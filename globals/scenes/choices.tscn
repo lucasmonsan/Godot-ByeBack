@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://eebarptl33eg"]
+[gd_scene load_steps=14 format=3 uid="uid://eebarptl33eg"]
 
 [ext_resource type="Texture2D" uid="uid://dcv34ns0kr7wa" path="res://resources/assets/ui/touch_click.svg" id="1_3hcqd"]
 [ext_resource type="Script" path="res://globals/scripts/choices.gd" id="1_qmsdo"]
@@ -33,6 +33,20 @@ content_margin_top = 160.0
 content_margin_right = 160.0
 content_margin_bottom = 160.0
 
+[sub_resource type="Animation" id="Animation_l7xjr"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_constants/icon_max_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(244, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_32yqb"]
 resource_name = "pulse"
 loop_mode = 1
@@ -48,25 +62,48 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1)
 }
 
-[sub_resource type="Animation" id="Animation_l7xjr"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_constants/icon_max_width")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(244, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0qvnn"]
 _data = {
 "RESET": SubResource("Animation_l7xjr"),
 "pulse": SubResource("Animation_32yqb")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fm6ic"]
+content_margin_left = 64.0
+content_margin_top = 16.0
+content_margin_right = 64.0
+content_margin_bottom = 40.0
+bg_color = Color(0.85098, 0.796078, 0.682353, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 28
+border_color = Color(0.101961, 0.0784314, 0.0901961, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+corner_detail = 12
+expand_margin_top = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4cou"]
+content_margin_left = 64.0
+content_margin_top = 16.0
+content_margin_right = 64.0
+content_margin_bottom = 20.0
+bg_color = Color(0.85098, 0.796078, 0.682353, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.101961, 0.0784314, 0.0901961, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+corner_detail = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yo3qb"]
 
 [node name="Choices" type="CanvasLayer"]
 layer = 3
@@ -81,43 +118,50 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.101961, 0.0784314, 0.0901961, 1)
 
-[node name="buttons" type="FlowContainer" parent="."]
+[node name="buttons" type="VBoxContainer" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -480.0
-offset_top = -320.0
+offset_top = -308.0
 offset_right = 480.0
 offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 28
-alignment = 1
+theme_override_constants/separation = 32
+alignment = 2
 
 [node name="option1" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(0, 216)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 8
 text = "Option 1
 Second Line"
 
 [node name="option2" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(0, 216)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 8
 text = "Option 1
 Second Line"
 
 [node name="option3" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(0, 216)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 8
 text = "Option 1
 Second Line"
 
 [node name="option4" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(0, 216)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 8
 text = "Option 1
 Second Line"
 
@@ -142,8 +186,37 @@ vertical_icon_alignment = 2
 libraries = {
 "": SubResource("AnimationLibrary_0qvnn")
 }
+autoplay = "pulse"
+
+[node name="interrupt" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 216)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -320.0
+offset_right = 246.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.686275, 0.294118, 0.231373, 1)
+theme_override_colors/font_pressed_color = Color(0.686275, 0.294118, 0.231373, 1)
+theme_override_colors/font_hover_color = Color(0.686275, 0.294118, 0.231373, 1)
+theme_override_colors/font_focus_color = Color(0.686275, 0.294118, 0.231373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.686275, 0.294118, 0.231373, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_fm6ic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fm6ic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m4cou")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yo3qb")
+text = "Option 1
+Second Line"
 
 [connection signal="pressed" from="buttons/option1" to="." method="_on_option_1_pressed"]
 [connection signal="pressed" from="buttons/option2" to="." method="_on_option_2_pressed"]
 [connection signal="pressed" from="buttons/option3" to="." method="_on_option_3_pressed"]
 [connection signal="pressed" from="buttons/option4" to="." method="_on_option_4_pressed"]
+[connection signal="pressed" from="full_page" to="." method="_on_full_page_pressed"]
+[connection signal="pressed" from="interrupt" to="." method="_on_interrupt_pressed"]
