@@ -33,3 +33,19 @@ grow_vertical = 2
 
 [node name="debug" type="CanvasLayer" parent="."]
 layer = 6
+
+[node name="Label" type="Label" parent="debug"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -544.0
+offset_right = 544.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.85098, 0.796078, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.101961, 0.0784314, 0.0901961, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 32
+text = "sASASAS"
+horizontal_alignment = 1
+vertical_alignment = 1

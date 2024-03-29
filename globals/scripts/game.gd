@@ -3,13 +3,14 @@ extends Control
 func _ready():
 	$bg/ColorRect.color = Color(PALETTE.white)
 	$fg/ColorRect.color = Color(PALETTE.black)
-	_fg_fade()
+
+func _process(_delta): $debug/Label.text = "step: " + str(GAME.step)
 
 #-----------------------------------------------------------------------------------------------------------------#
 
 func _change_bg(new_color): get_tree().create_tween().tween_property($bg/ColorRect, "color", new_color, 1)
 func _change_fg(new_color): get_tree().create_tween().tween_property($fg/ColorRect, "color", new_color, 1)
-func _fg_fade(speed = 2.0): 
+func _fg_fade(speed = 1.0): 
 	if ($fg/ColorRect.visible):
 		get_tree().create_tween().tween_property($fg/ColorRect, "modulate", Color("FFF0"), speed)
 		await get_tree().create_timer(speed).timeout
@@ -21,7 +22,8 @@ func _fg_fade(speed = 2.0):
 #-----------------------------------------------------------------------------------------------------------------#
 
 var day = 1
-var step = 0
+var step = 1
+var choice = ""
 var touch = false
 
 func _once():

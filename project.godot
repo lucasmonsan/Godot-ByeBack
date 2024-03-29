@@ -21,6 +21,7 @@ SFX="*res://globals/scenes/sfx.tscn"
 PALETTE="*res://globals/scripts/palette.gd"
 TWN="*res://globals/scripts/twn.gd"
 DIALOG="*res://globals/scenes/dialog.tscn"
+CHOICES="*res://globals/scenes/choices.tscn"
 
 [display]
 

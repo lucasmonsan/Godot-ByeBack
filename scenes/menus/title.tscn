@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/menus/title.gd" id="1_fapoi"]
 
 [node name="Title" type="CanvasLayer"]
-layer = 3
+layer = 4
 script = ExtResource("1_fapoi")
 
 [node name="start" type="Button" parent="."]

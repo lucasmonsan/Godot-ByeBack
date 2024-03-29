@@ -1,0 +1,149 @@
+[gd_scene load_steps=11 format=3 uid="uid://eebarptl33eg"]
+
+[ext_resource type="Texture2D" uid="uid://dcv34ns0kr7wa" path="res://resources/assets/ui/touch_click.svg" id="1_3hcqd"]
+[ext_resource type="Script" path="res://globals/scripts/choices.gd" id="1_qmsdo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsv4b"]
+content_margin_left = 160.0
+content_margin_top = 160.0
+content_margin_right = 160.0
+content_margin_bottom = 160.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwmoj"]
+content_margin_left = 160.0
+content_margin_top = 160.0
+content_margin_right = 160.0
+content_margin_bottom = 160.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_effog"]
+content_margin_left = 160.0
+content_margin_top = 160.0
+content_margin_right = 160.0
+content_margin_bottom = 144.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ohv2o"]
+content_margin_left = 160.0
+content_margin_top = 160.0
+content_margin_right = 160.0
+content_margin_bottom = 160.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efa54"]
+content_margin_left = 160.0
+content_margin_top = 160.0
+content_margin_right = 160.0
+content_margin_bottom = 160.0
+
+[sub_resource type="Animation" id="Animation_32yqb"]
+resource_name = "pulse"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_constants/icon_max_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(280, -0.25, 0, 0.25, 0, 264, -0.25, 0, 0.25, 0, 280, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_l7xjr"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_constants/icon_max_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(244, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qvnn"]
+_data = {
+"RESET": SubResource("Animation_l7xjr"),
+"pulse": SubResource("Animation_32yqb")
+}
+
+[node name="Choices" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_qmsdo")
+
+[node name="grayout" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.0784314, 0.0901961, 1)
+
+[node name="buttons" type="FlowContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -320.0
+offset_right = 480.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 28
+alignment = 1
+
+[node name="option1" type="Button" parent="buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Option 1
+Second Line"
+
+[node name="option2" type="Button" parent="buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Option 1
+Second Line"
+
+[node name="option3" type="Button" parent="buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Option 1
+Second Line"
+
+[node name="option4" type="Button" parent="buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Option 1
+Second Line"
+
+[node name="full_page" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/icon_max_width = 244
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hsv4b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mwmoj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_effog")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ohv2o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efa54")
+icon = ExtResource("1_3hcqd")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="full_page"]
+libraries = {
+"": SubResource("AnimationLibrary_0qvnn")
+}
+
+[connection signal="pressed" from="buttons/option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="buttons/option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="buttons/option3" to="." method="_on_option_3_pressed"]
+[connection signal="pressed" from="buttons/option4" to="." method="_on_option_4_pressed"]
